@@ -19,9 +19,8 @@ export default class App2 extends Component {
         <h2>数字:{this.state.num}</h2>
         <button style={{display:"block",width:"300px",padding:"0 20px",height:"50px",fontSize:"30px"}} 
         onClick={()=>{this.setState({num: this.state.num+1})
-            console.log(this.state.num)
-        }
-        }>通过this.state累加</button>
+            console.log(this.state.num)}
+            }>通过this.state累加</button>
         <button style={{display:"block",width:"300px",height:"50px",fontSize:"30px"}} onClick={ this.addNum.bind(this)  //bind把addNum指向this 
         }>调用函数方式1</button>
         <button style={{display:"block",width:"300px",height:"50px",fontSize:"30px"}} onClick={()=>{ this.addNum()  // 这样加()不会直接调用函数

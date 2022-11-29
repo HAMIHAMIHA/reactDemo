@@ -20,7 +20,6 @@ class App1 extends React.Component{ //es6在这里表示构造函数。样式用
                         arr.map((item,index)=>{
                             return <li key={index}>index:{index} content:{item}</li>
                         })
-
                     }
 
                 </ul>

@@ -16,7 +16,7 @@ class App extends React.Component{
  export default App
 
  /*
- 1.组件名要大写。
+ 1.组件名首字母要大写。
  2.JS中出现()代表其中想要写html
  3.JS中出现{}代表其中想要写js
  4.export default 可以写class前面
