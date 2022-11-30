@@ -1,9 +1,10 @@
-//视图内容不能被直接修改，所以需要hook
+//函数式组件的视图内容不能被直接修改，所以需要hook
 import {useState} from 'react' //状态组件
 
 let msg = "不能修改的视图内容"
 let msg1 = "可以修改的视图内容"
 let flag = true
+
 const App1 = () =>{
     // Hook只能用在组件函数中的最顶层
     const [msgs,setMsgs] = useState(flag) //useState的形式是一个数组。

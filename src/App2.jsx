@@ -1,37 +1,44 @@
-import { useState,useEffect } from 'react' //状态组件
-let a=1,b=1
-const App2 = () =>{
-    const [msg,setMsg] = useState(a)
-    const [msg1,setMsg1] = useState(b)
-    
-    //检测指定的数据更新，模拟updated。检测useState数组中的变量。
-    useEffect(()=>{ // 不写数组检测所有变量的更新。写数组只检测写在其中的变量的更新。空数组就都不检测。
-        console.log("检测到了数组中的变量msg更新。")
-    },[msg])
+import React from 'react'
+//引入react用于显示子路由的组件 
+// 引入Link来代替href ???? 
+// useLocation能够得到当前页面的链接 ???? 
+// 通过useNavigate跳转详情页 ????
+// index.js中只有一个Router组件好用 ???
+import {Outlet,Link,useLocation,useNavigate} from 'react-router-dom'
+export default function App2() {
+  const location = useLocation()
+  console.log(location)
+  console.log("pathname",location.pathname)
 
-    // 模拟beforeDestroy，在函数返回值里再返回一个函数
-    // 当组件被销毁时触发。一般在这里处理脏数据或者垃圾回收。比如let msg=null.在这里可以改回来。
-    useEffect(()=>{
-        return ()=>{
-            console.log("销毁阶段，当组件被销毁时触发。")
-        }
+  // const navigate = useNavigate()
+  // const goDetail = () =>{
+  //   // 跳转详情页
+  //   navigate('/detail')
+  // }
+
+  //跳转页面传入参数时，用下面两种方式传入的参数很有限。多个数据更适合用事件跳转的方式
+  const navigate = useNavigate()
+  const goDetail = () =>{
+    navigate('/detail',{
+      state:{username:'张三'}
     })
-    return(
-        <>
-            <div style={{border:"1px solid black"}}>
-                <h1>组件App2,10秒后会被销毁</h1>
-                <h1 onClick={()=>{setMsg(a=a+1)}}>{msg}</h1>
-                <h1 onClick={()=>{setMsg1(b=b+1)}}>{msg1}</h1>
-            </div>
-        </>
-    )
-}
-export default App2
+  }
 
-// 函数式组件没有生命周期，类组件有
-/* 
-    1.Vue的生命周期。 
-        mounted  updated     beforeDestroy
-        数据请求  检测数据更新  垃圾回收
-    useEffect，模拟mounted
-*/
+  return (
+    <>
+       <h1>App2</h1>
+       <ul>
+          <li><Link to="/home">首页</Link></li>
+          <li><Link to="/list">列表页</Link></li>
+          <li><Link to="/detail">详情页</Link></li>
+          {/* <li><a href="/home?id=456">首页</a></li>
+          <li><a href="/list/123">列表页</a></li>
+          <li><a href="/detail">详情页</a></li> */}
+       </ul>
+       <button onClick={goDetail}>跳转详情页</button>
+      <Outlet /> {/* 位置无所谓，只需要添加进去。 */}
+    </>
+  )
+}
+// vue显示子路由
+// <router-view></router-view>

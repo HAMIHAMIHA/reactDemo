@@ -24,7 +24,7 @@ export default function App7(){
     const doSth = useMemo(()=>{
         return ()=>setNum((num)=>num+1)
     },[])
-
+    
     return(
         <div>
             <h1>App7</h1>

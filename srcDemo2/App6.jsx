@@ -12,7 +12,7 @@
             <h1>App6</h1>
             <h3>受控组件</h3>
             <input type="text" value={value} onChange={(e)=>{setValue(e.target.value);inputChange(e)}} />
-            <button onClick={() =>{console.log(value)}}>获取input的值</button>
+            <button onClick={() =>console.log(value)}>获取input的值</button>
             <h3>不受控组件</h3>
             <input type="text" ref={element}/>
             <button onClick={()=>console.log(element.current.value)}>获取input的值</button>

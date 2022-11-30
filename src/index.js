@@ -1,52 +1,30 @@
-//react17
-// import ReactDOM from 'react-dom'
-// import App from './App'
-// ReactDOM.render(
-//     <>
-//         <App/>
-//     </>,
-//     document.getElementById('root')
-// )
-//react18
+//仓库 和 路由
+
 import { createRoot } from "react-dom/client"
-import App from './App'
-import App1 from './App1'
-import App2 from './App2'
-import App3 from './App3'
-import App4 from './App4'
-import App5 from './App5'
-import App6 from './App6'
-import App7 from './App7'
+//引入组件
+import App from "./App"
+import App2 from "./App2"
+//引入提供者
+import {Provider} from 'react-redux'
+//引入仓库
+import store from './store'
 
-// createRoot(document.getElementById('root')).render(<App/>)   //简写
-const container = document.getElementById('root')
-const root = createRoot(container)
+//引入路由
+import Router from './router/index.jsx'
+//引入路由组件
+// import {BrowserRouter} from 'react-router-dom'
 
+
+
+const root = createRoot(document.getElementById('root'))
 root.render(
     <>
-        <App/>
-        <App1/>
-        <App2/>
-        <App3/>
-        <App4/>
-        <App5/>
-        <App6/>
-        <App7/>
+        {/* <Provider store={store}> */}
+            {/* <App/> */}
+            {/* <BrowserRouter>  */}
+                {/* <App2/> */}
+            {/* </BrowserRouter> */}
+        {/* </Provider> */}
+        <Router />
     </>
 )
-
-setTimeout(()=>{
-    root.render(
-        <>
-            <App/>
-            <App1/>
-            <h1 style={{color:"red"}}>组件App2被销毁了</h1>
-            <App3/>
-            <App4/>
-            <App5/>
-            <App6/>
-            <App7/>
-
-        </>
-    )
-},10000)
