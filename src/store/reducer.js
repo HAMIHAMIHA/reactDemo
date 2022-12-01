@@ -2,6 +2,8 @@
 const defaultStatus = {
     num: 1
 }
+
+
 //导出一个函数
 //如果有警告就在其上一行加这行注释
 //eslint-disable-next-line

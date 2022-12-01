@@ -14,8 +14,6 @@ import Router from './router/index.jsx'
 //引入路由组件
 // import {BrowserRouter} from 'react-router-dom'
 
-
-
 const root = createRoot(document.getElementById('root'))
 root.render(
     <>
